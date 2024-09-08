@@ -12,7 +12,7 @@ const App = () => {
     const getJoke = async () => {
         try {
             const response = await fetch(
-                "https://v2.jokeapi.dev/joke/Dark?type=single"
+                "https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,explicit&type=single"
             );
             const data = await response.json();
             setJoke(data.joke);
