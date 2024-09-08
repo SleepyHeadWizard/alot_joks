@@ -1,11 +1,9 @@
-// App.js file
 import React, { useState } from "react";
 import {
     View,
     Text,
     StyleSheet,
     TouchableOpacity,
-    StatusBar,
 } from "react-native";
 
 const App = () => {
@@ -14,12 +12,7 @@ const App = () => {
     const getJoke = async () => {
         try {
             const response = await fetch(
-                "https://icanhazdadjoke.com/",
-                {
-                    headers: {
-                        Accept: "application/json",
-                    },
-                }
+                "https://v2.jokeapi.dev/joke/Dark?type=single"
             );
             const data = await response.json();
             setJoke(data.joke);
@@ -30,12 +23,8 @@ const App = () => {
 
     return (
         <View style={styles.container}>
-            <StatusBar
-                backgroundColor="#252627"
-                barStyle="light-content"/>
-                
             <Text style={styles.title}>
-                Random Jokes Generator
+                Alot of jokes
             </Text>
             <View style={styles.jokeContainer}>
                 <Text style={styles.jokeText}>{joke}</Text>
@@ -45,62 +34,8 @@ const App = () => {
                 onPress={getJoke}>
                 
                 <Text style={styles.buttonText}>
-                    Get a Joke
-                </Text>
-            </TouchableOpacity>
-        </View>
-    );
-};
-
-// App.js file
-import React, { useState } from "react";
-import {
-    View,
-    Text,
-    StyleSheet,
-    TouchableOpacity,
-    StatusBar,
-} from "react-native";
-
-const App = () => {
-    const [joke, setJoke] = useState("");
-
-    const getJoke = async () => {
-        try {
-            const response = await fetch(
-                "https://icanhazdadjoke.com/",
-                {
-                    headers: {
-                        Accept: "application/json",
-                    },
-                }
-            );
-            const data = await response.json();
-            setJoke(data.joke);
-        } catch (error) {
-            console.error(error);
-        }
-    };
-
-    return (
-        <View style={styles.container}>
-            <StatusBar
-                backgroundColor="#252627"
-                barStyle="light-content"/>
-                
-            <Text style={styles.title}>
-                Random Jokes Generator
-            </Text>
-            <View style={styles.jokeContainer}>
-                <Text style={styles.jokeText}>{joke}</Text>
-            </View>
-            <TouchableOpacity
-                style={styles.button}
-                onPress={getJoke}>
-                
-                <Text style={styles.buttonText}>
-                    Get a Joke
-                </Text>
+                    (❁´◡`❁)
+                    </Text>
             </TouchableOpacity>
         </View>
     );
@@ -109,7 +44,7 @@ const App = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#eee",
+        backgroundColor: "#e0f7fa",  // Light blue for calm and fun atmosphere
         alignItems: "center",
         justifyContent: "center",
         padding: 16,
@@ -117,45 +52,46 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 28,
         fontWeight: "bold",
-        color: "#333739",
+        color: "#2c3e50",  // Dark navy for trust and attention
         marginBottom: 24,
         textAlign: "center",
     },
     jokeContainer: {
-        backgroundColor: "white",
+        backgroundColor: "#f9f9f9",  // Light neutral for clean look
         borderRadius: 15,
         padding: 20,
         marginBottom: 24,
         width: "100%",
         alignItems: "center",
-        shadowColor: "black",
+        shadowColor: "#b0bec5",  // Subtle shadow for depth
         shadowOffset: { width: 1, height: 2 },
-        shadowRadius: 15,
-        shadowOpacity: 1,
+        shadowRadius: 10,
+        shadowOpacity: 0.8,
         elevation: 4,
     },
     jokeText: {
         fontSize: 22,
         fontWeight: "300",
         lineHeight: 30,
-        color: "#333739",
+        color: "#333739",  // Soft dark gray for readability without harshness
         textAlign: "center",
     },
     button: {
         padding: 16,
-        backgroundColor: "green",
+        backgroundColor: "#ffa726",  // Vibrant orange for action
         borderRadius: 10,
-        shadowColor: "black",
+        shadowColor: "#ffa726",
         shadowOffset: { width: 1, height: 2 },
-        shadowRadius: 15,
+        shadowRadius: 100,
         shadowOpacity: 1,
         elevation: 4,
     },
     buttonText: {
         fontSize: 20,
-        color: "white",
+        color: "#ffffff",  // White for contrast on the orange button
         fontWeight: "bold",
     },
 });
+
 
 export default App;
